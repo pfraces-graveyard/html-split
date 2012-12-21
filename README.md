@@ -2,7 +2,15 @@
 
 Split html in divs
 
+**html-split** only depends on [DAL](https://github.com/pfraces/dal) a micro
+library for dealing with the DOM
+
+**DAL** has been created explicitly for this project, so more than a
+dependency is its standard library
+
 # Example
+
+Shows the use of **html-split** and **DAL** in combination
 
 ```html
 <div id="content">
@@ -15,6 +23,9 @@ Split html in divs
   <h2>Finaly a subtitle</h2>
   <p>with final content</p>
 </div>
+
+<script src="dal.js">
+<script src="html-split.js">
 ```
 
 ```js
