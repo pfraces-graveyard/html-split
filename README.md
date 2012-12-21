@@ -2,7 +2,7 @@
 
 Split html in divs
 
-**html-split** only depends on [DAL](https://github.com/pfraces/dal) a micro
+**html-split** only depends on [DAL](https://github.com/pfraces/dal), a micro
 library for dealing with the DOM
 
 **DAL** has been created explicitly for this project, so more than a
@@ -13,7 +13,10 @@ dependency is its standard library
 Shows the use of **html-split** and **DAL** in combination
 
 ```html
-<div id="content">
+<div id="ui">
+  <button onclick="run()">Split!</button>
+</div>
+<div id="content" class="left">
   <h1>Welcome to html-split</h1>
   <p>Some text here</p>
   <div id="foo">
@@ -22,23 +25,44 @@ Shows the use of **html-split** and **DAL** in combination
   </div>
   <h2>Finaly a subtitle</h2>
   <p>with final content</p>
+  <div id="bar">
+    <ul>
+     <li> one    </li>
+     <li> two    </li>
+     <li> three  </li>
+     <li> four   </li>
+     <li> five   </li>
+     <li> six    </li>
+     <li> seven  </li>
+     <li> eight  </li>
+     <li> nine   </li>
+     <li> ten    </li>
+    </ul>
+  </div>
+  <div id="split" class="left"></div>
 </div>
 
 <script src="dal.js">
 <script src="html-split.js">
+<script src="example.js">
 ```
 
+**example.js:**
+
 ```js
-var size = { width: '20em', height: '10em' }
-  , tokens = split(document.body.innerHTML, size)
-  , original = dal().color('red', 'white').size(size);
-  
-for (token in tokens) original.clone().html(tokens[token]).draw();
+run = function () {
+  var size = { width: '20em', height: '10em' }
+    , tokens = split(dal('content').innerHTML, size)
+    , original = dal().color('red', 'white').size(size);
+    
+  for (var i = 0; i < tokens.length; i++)
+    dal('split').add(original.clone().html(tokens[tokens.length - (1 + i)]));
+}
 ```
 
 ## Split!
 
-![splitted!](https://github.com/pfraces/html-split/raw/master/splitted.png)
+![Split!](https://github.com/pfraces/html-split/raw/master/split.png)
 
 # Install
 
