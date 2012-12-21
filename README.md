@@ -36,7 +36,7 @@ this time.
 
 # API
 
-## html-split(html, opts)
+## split(html, opts)
 
 Available `opts`
 
