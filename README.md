@@ -4,26 +4,26 @@ Split html in divs
 
 # Example
 
-html:
+```html
+<div id="content">
+  <h1>Welcome to html-split</h1>
+  <p>Some text here</p>
+  <div id="foo">
+    <h1>Another title</h1>
+    <p>With weird text about nothing</p>
+  </div>
+  <h2>Finaly a subtitle</h2>
+  <p>with final content</p>
+</div>
+```
 
-    <div id="content">
-      <h1>Welcome to html-split</h1>
-      <p>Some text here</p>
-      <div id="foo">
-        <h1>Another title</h1>
-        <p>With weird text about nothing</p>
-      </div>
-      <h2>Finaly a subtitle</h2>
-      <p>with final content</p>
-    </div>
-
-js:
-
-    var size = { width: '20em', height: '10em' }
-      , tokens = split(document.body.innerHTML, size)
-      , original = dal().color('red', 'white').size(size);
-      
-    for (token in tokens) original.clone().html(tokens[token]).draw();
+```js
+var size = { width: '20em', height: '10em' }
+  , tokens = split(document.body.innerHTML, size)
+  , original = dal().color('red', 'white').size(size);
+  
+for (token in tokens) original.clone().html(tokens[token]).draw();
+```
 
 ## Split!
 
