@@ -1,0 +1,22 @@
+{
+  "name": "html-split",
+  "version": "0.1.0",
+  "description": "Split html in divs",
+  "main": "./lib/index.js",
+  "dependencies": {
+    "dal": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pfraces/html-split.git"
+  },
+  "keywords": [
+    "html",
+    "split"
+  ],
+  "author": "Pau Fracés",
+  "license": "MIT"
+}
