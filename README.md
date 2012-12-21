@@ -6,24 +6,24 @@ Split html in divs
 
 html:
 
-    <ul>
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
-      <li>item 4</li>
-      <!-- insert as items as you want -->
-    </ul>
-
-    <div id="d1"></div>
-    <div id="d2"></div>
-    <!-- insert as divs as you want -->
+    <div id="content">
+      <h1>Welcome to html-split</h1>
+      <p>Some text here</p>
+      <div id="foo">
+        <h1>Another title</h1>
+        <p>With weird text about nothing</p>
+      </div>
+      <h2>Finaly a subtitle</h2>
+      <p>with final content</p>
+    </div>
 
 js:
 
-    var tokens = split( document.body.innerHTML,
-                        {width: '10em', height: '5em'})
-    document.getElementById('d1').innerHTML = tokens[0];
-    document.getElementById('d2').innerHTML = tokens[1];
+    var size = { width: '10em', height: '5em' }
+      , tokens = split(document.body.innerHTML, size)
+      , original = dal().color('red', 'white').size(size);
+      
+    for (token in tokens) original.clone().html(token).draw();
 
 # Install
 
