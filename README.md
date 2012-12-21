@@ -19,11 +19,11 @@ html:
 
 js:
 
-    var size = { width: '10em', height: '5em' }
+    var size = { width: '20em', height: '10em' }
       , tokens = split(document.body.innerHTML, size)
       , original = dal().color('red', 'white').size(size);
       
-    for (token in tokens) original.clone().html(token).draw();
+    for (token in tokens) original.clone().html(tokens[token]).draw();
 
 # Install
 
