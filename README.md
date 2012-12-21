@@ -18,7 +18,7 @@ html:
     <div id="d2"></div>
     <!-- insert as divs as you want -->
 
-
+js:
 
     var tokens = html-split(document.body.innerHTML, 
                             {width: '300px', height: '150px'})
