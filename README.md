@@ -12,6 +12,10 @@ dependency is its standard library
 
 Shows the use of **html-split** and **DAL** in combination
 
+## HTML
+
+First, a little markup to be splitted
+
 ```html
 <div id="ui">
   <button onclick="run()">Split!</button>
@@ -47,7 +51,28 @@ Shows the use of **html-split** and **DAL** in combination
 <script src="example.js">
 ```
 
-**example.js:**
+## CSS
+
+Some style for a good experiencie
+
+```css
+.left {
+  position: relative;
+  float: left;
+  margin: 2em;
+}
+#ui {
+  margin: 2em;
+}
+#content {
+  border: 1px solid #000;
+  padding: 2em;
+}
+```
+
+## JavaScript
+
+Finally, the expected **example.js:**
 
 ```js
 run = function () {
@@ -60,7 +85,9 @@ run = function () {
 }
 ```
 
-## Split!
+## Split it!
+
+Here they are! Splitted and inverted :)
 
 ![Split!](https://github.com/pfraces/html-split/raw/master/split.png)
 
