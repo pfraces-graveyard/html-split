@@ -25,6 +25,10 @@ js:
       
     for (token in tokens) original.clone().html(tokens[token]).draw();
 
+## Split!
+
+![splitted!](https://github.com/pfraces/html-split/raw/master/splitted.png)
+
 # Install
 
     $ npm install html-split
