@@ -20,8 +20,8 @@ html:
 
 js:
 
-    var tokens = split(document.body.innerHTML, 
-                            {width: '300px', height: '150px'})
+    var tokens = split( document.body.innerHTML,
+                        {width: '10em', height: '5em'})
     document.getElementById('d1').innerHTML = tokens[0];
     document.getElementById('d2').innerHTML = tokens[1];
 
