@@ -38,7 +38,7 @@ this time.
 
 ## split(html, opts)
 
-Available `opts`
+`opts` is an object with the following properties:
 
 *   **width:** Determines the width of the wrapper
 *   **height:** Determines the height of the wrapper
