@@ -1,6 +1,6 @@
 {
   "name": "html-split",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Split html in divs",
   "main": "./lib/index.js",
   "dependencies": {
