@@ -2,8 +2,8 @@
 
 Split html in divs
 
-**html-split** only depends on [DAL](https://github.com/pfraces/dal), a micro
-library for dealing with the DOM
+**html-split** only depends on [DAL](https://github.com/pfraces/dal), a
+micro-library for dealing with the DOM
 
 **DAL** has been created explicitly for this project, so more than a
 dependency is its standard library
@@ -78,7 +78,7 @@ Finally, the expected **example.js:**
 run = function () {
   var size = { width: '20em', height: '10em' }
     , tokens = split(dal('content').innerHTML, size)
-    , original = dal().color('red', 'white').size(size);
+    , original = dal().color({ bg: 'red', fg: 'white' }).size(size);
     
   for (var i = 0; i < tokens.length; i++)
     dal('split').add(original.clone().html(tokens[tokens.length - (1 + i)]));
@@ -104,10 +104,11 @@ this time.
 
 ## split(html, opts)
 
-`opts` is an object with the following properties:
+`html`: _[String: HTML]_ Content to be splitted
+`opts`: _[Object]_
 
-*   **width:** Determines the width of the wrapper
-*   **height:** Determines the height of the wrapper
+*   `opts.width`: Determines the width of the wrapper
+*   `opts.height`: Determines the height of the wrapper
 
 # Contribute
 
