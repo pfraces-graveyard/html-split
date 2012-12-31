@@ -1,10 +1,10 @@
 {
   "name": "html-split",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "description": "Split html in divs",
   "main": "./lib/index.js",
   "dependencies": {
-    "dal": "*"
+    "modal": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,8 +14,12 @@
     "url": "https://github.com/pfraces/html-split.git"
   },
   "keywords": [
+    "dal",
+    "modal",
     "html",
-    "split"
+    "split",
+    "layout",
+    "print"
   ],
   "author": "Pau Fracés",
   "license": "MIT"
