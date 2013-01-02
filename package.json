@@ -1,9 +1,10 @@
 {
   "name": "html-split",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Split html in divs",
   "main": "./lib/index.js",
   "dependencies": {
+    "jslib": "*",
     "dal": "*",
     "modal": "*"
   },
