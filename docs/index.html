@@ -21,6 +21,7 @@
       <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">isFull</span><span class="p">())</span> <span class="p">{</span>
         <span class="nx">dal</span><span class="p">(</span><span class="nx">node</span><span class="p">).</span><span class="nx">del</span><span class="p">();</span>
         <span class="nx">divs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">getHtml</span><span class="p">());</span>
+        <span class="nx">wrap</span><span class="p">.</span><span class="nx">del</span><span class="p">();</span>
         <span class="nx">wrap</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">clone</span><span class="p">().</span><span class="nx">attach</span><span class="p">();</span>
         <span class="nx">addToDiv</span><span class="p">(</span><span class="nx">node</span><span class="p">);</span>
       <span class="p">}</span>
@@ -28,6 +29,7 @@
   <span class="p">});</span>
 
   <span class="nx">divs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">getHtml</span><span class="p">());</span>
+  <span class="nx">wrap</span><span class="p">.</span><span class="nx">del</span><span class="p">();</span>
   <span class="k">return</span> <span class="nx">divs</span><span class="p">;</span>
 <span class="p">}</span>
 
