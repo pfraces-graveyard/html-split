@@ -5,13 +5,13 @@
     <span class="p">,</span> <span class="nx">divs</span> <span class="o">=</span> <span class="p">[];</span>
 
   <span class="nx">nodes</span><span class="p">.</span><span class="nx">foreach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">full</span><span class="p">())</span> <span class="p">{</span>
-      <span class="nx">divs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">isFull</span><span class="p">())</span> <span class="p">{</span>
+      <span class="nx">divs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">getHtml</span><span class="p">());</span>
       <span class="nx">wrap</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">clone</span><span class="p">().</span><span class="nx">attach</span><span class="p">();</span>
     <span class="p">}</span>
     <span class="nx">wrap</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">el</span><span class="p">.</span><span class="nx">copy</span><span class="p">());</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>wrap.add(el.clone());</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="p">});</span>
 
-  <span class="nx">divs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">);</span>
+  <span class="nx">divs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">getHtml</span><span class="p">());</span>
   <span class="k">return</span> <span class="nx">divs</span><span class="p">;</span>
 <span class="p">}</span>
 
