@@ -4,6 +4,7 @@
   "description": "Split html in divs",
   "main": "./lib/index.js",
   "dependencies": {
+    "dal": "*",
     "modal": "*"
   },
   "scripts": {
@@ -14,12 +15,10 @@
     "url": "https://github.com/pfraces/html-split.git"
   },
   "keywords": [
-    "dal",
-    "modal",
     "html",
     "split",
-    "layout",
-    "print"
+    "print",
+    "layout"
   ],
   "author": "Pau Fracés",
   "license": "MIT"
