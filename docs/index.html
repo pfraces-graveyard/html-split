@@ -1,35 +1,72 @@
-<!DOCTYPE html>  <html> <head>   <title>index.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               index.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">split</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="nx">opts</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">nodes</span> <span class="o">=</span> <span class="nx">modal</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
-    <span class="p">,</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">dal</span><span class="p">().</span><span class="nx">hide</span><span class="p">().</span><span class="nx">size</span><span class="p">(</span><span class="nx">opts</span><span class="p">)</span>
-    <span class="p">,</span> <span class="nx">wrap</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">clone</span><span class="p">().</span><span class="nx">attach</span><span class="p">()</span>
-    <span class="p">,</span> <span class="nx">divs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="p">,</span> <span class="nx">elStack</span><span class="p">;</span>
+<!DOCTYPE html>  <html> <head>   <title>index.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               index.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <h1>split()</h1>
 
-  <span class="nx">nodes</span><span class="p">.</span><span class="nx">foreach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">jslib</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">traverse</span><span class="p">({</span>
-      <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;children&#39;</span>
-    <span class="p">,</span> <span class="nx">before</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">elStack</span><span class="p">)</span> <span class="nx">dal</span><span class="p">(</span><span class="nx">elStack</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="nx">node</span><span class="p">);</span>
-        <span class="nx">elStack</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+<p>[TODO] Translate to english</p>
+
+<p>Por cada nodo debemos:</p>
+
+<ol>
+<li>agregar el nodo a <code>wrap</code></li>
+<li><p>si <code>wrap.isFull()</code></p>
+
+<ol><li>eliminar el último nodo añadido <code>sobrante</code></li>
+<li>Apilar <code>wrap</code></li>
+<li><code>wrap = wrapper.clone();</code></li>
+<li><code>wrap.add(sobrante);</code></li></ol></li>
+</ol>
+
+<p>En 1.4 perdemos anidamiento, así que hemos de guardar en algún
+sitio los padres del nodo que se está intentando añadir.</p>
+
+<p>Al hacer overflow:</p>
+
+<ol>
+<li>eliminar el último nodo añadido <code>sobrante</code></li>
+<li>Apilar <code>wrap</code></li>
+<li><code>wrap = wrapper.clone();</code></li>
+<li><code>wrap.add(node.pathTo(sobrante));</code></li>
+</ol>
+
+<p>Para agregar un elemento al <code>wrap</code>, debemos saber bajo que nodo lo hemos
+de añadir, por tanto la idea de <code>pathLeaf</code> de la opción descartada puede
+servir, renombrada a <code>parent</code></p>             </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">split</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="nx">opts</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">nodes</span> <span class="o">=</span> <span class="nx">modal</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span>
+    <span class="p">,</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">dal</span><span class="p">().</span><span class="nx">hide</span><span class="p">().</span><span class="nx">size</span><span class="p">(</span><span class="nx">opts</span><span class="p">)</span>
+  </pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <h2>wrap</h2>
+
+<p>Actuará de div contenedor temporal. Tendrá el tamaño indicado en <code>opts</code></p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="p">,</span> <span class="nx">wrap</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">clone</span><span class="p">().</span><span class="nx">attach</span><span class="p">()</span>
+    <span class="p">,</span> <span class="nx">divs</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="nx">nodes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <h2>parent</h2>
+
+<p>Referencia al padre del nodo actual</p>
+
+<p>[TODO] Implementar en <code>traverse</code></p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">parent</span> <span class="o">=</span> <span class="nx">wrap</span><span class="p">;</span>
+
+    <span class="nx">node</span><span class="p">.</span><span class="nx">traverse</span><span class="p">({</span>
+      <span class="nx">before</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">copy</span> <span class="o">=</span> <span class="nx">dal</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">copy</span><span class="p">();</span>
+
+        <span class="nx">parent</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">copy</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">isFull</span><span class="p">())</span> <span class="p">{</span>
+          <span class="nx">path</span> <span class="o">=</span> <span class="nx">copy</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">last</span><span class="p">());</span>
+          <span class="nx">parent</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">lastLeaf</span><span class="p">();</span>
+          <span class="nx">copy</span><span class="p">.</span><span class="nx">detach</span><span class="p">();</span>
+          <span class="nx">divs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">getHtml</span><span class="p">());</span>
+          <span class="nx">wrap</span><span class="p">.</span><span class="nx">detach</span><span class="p">();</span>
+          <span class="nx">wrap</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">clone</span><span class="p">().</span><span class="nx">attach</span><span class="p">();</span>
+          <span class="nx">wrap</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="nx">parent</span> <span class="o">=</span> <span class="nx">copy</span><span class="p">;</span>
       <span class="p">}</span>
-    <span class="p">,</span> <span class="nx">after</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">elStack</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">)</span> <span class="nx">elStack</span> <span class="o">=</span> <span class="nx">elStack</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">;</span>
-        <span class="k">else</span> <span class="nx">elStack</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">},</span> <span class="kd">function</span> <span class="nx">addToDiv</span> <span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">())</span> <span class="nx">wrap</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">dal</span><span class="p">(</span><span class="nx">elStack</span><span class="p">).</span><span class="nx">clone</span><span class="p">());</span>
-      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">isFull</span><span class="p">())</span> <span class="p">{</span>
-        <span class="nx">dal</span><span class="p">(</span><span class="nx">node</span><span class="p">).</span><span class="nx">del</span><span class="p">();</span>
-        <span class="nx">divs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">getHtml</span><span class="p">());</span>
-        <span class="nx">wrap</span><span class="p">.</span><span class="nx">del</span><span class="p">();</span>
-        <span class="nx">wrap</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">clone</span><span class="p">().</span><span class="nx">attach</span><span class="p">();</span>
-        <span class="nx">addToDiv</span><span class="p">(</span><span class="nx">node</span><span class="p">);</span>
+      <span class="p">,</span> <span class="nx">after</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">parent</span> <span class="o">=</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">parent</span><span class="p">();</span>
       <span class="p">}</span>
     <span class="p">});</span>
   <span class="p">});</span>
 
   <span class="nx">divs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">wrap</span><span class="p">.</span><span class="nx">getHtml</span><span class="p">());</span>
-  <span class="nx">wrap</span><span class="p">.</span><span class="nx">del</span><span class="p">();</span>
+  <span class="nx">wrap</span><span class="p">.</span><span class="nx">detach</span><span class="p">();</span>
   <span class="k">return</span> <span class="nx">divs</span><span class="p">;</span>
 <span class="p">}</span>
 
