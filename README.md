@@ -2,34 +2,28 @@
 
 Split html in divs
 
-**html-split** only depends on:
-*   [jsLib](https://github.com/pfraces/jslib), a general purpose JavaScript
-    micro-library
-*   [DAL](https://github.com/pfraces/dal), a micro-library for dealing with the
-    DOM
-
-Both has been created explicitly for this project, hence they limited set of
-features, but can be used on its own offering a simple yet powerful toolset
-
 # Example
 
 ```js
-run = function () {
+window.test = function () {
   var size = { width: '20em', height: '10em' }
     , tokens = split(dal('content').getHtml(), size)
-    , original = dal().color({ bg: 'red', fg: 'white' }).size(size);
+    , original = dal()
+        .size(size)
+        .class.add('token')
+        .uncollapse();
     
-  for (var i = 0; i < tokens.length; i++)
-    dal('split').add(original.clone().html(tokens[tokens.length - (1 + i)]));
+  for (var i = 0; i < tokens.length; i++) {
+    dal('split')
+      .add(original.clone().html(tokens[tokens.length - (1 + i)]));
+  }
 }
 ```
-See the complete example at the [examples](https://github.com/pfraces/html-split-examples) repo
-
-## Split it!
-
-Here they are! Splitted and inverted :)
+Here they are! Splitted and inverted :D
 
 ![Split!](https://github.com/pfraces/html-split/raw/master/split.png)
+
+See the complete example at the [examples](https://github.com/pfraces/html-split-examples) repo
 
 # Install
 
